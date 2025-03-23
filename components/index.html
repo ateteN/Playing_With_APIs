@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forex Masters</title>
-<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Convert Your Currency</h1>
-    <div id="result"></div>
-    <button id="rate">Get Exchange Rate</button>
-<script src="script.js"></script>
+    <button id="fetch-rates">Get Exchange Rate</button>
+    <div id="exchange-rates"></div>
+    
+    <div>
+        <input type="number" id="amount" placeholder="Enter the Price">
+        <select id="from-currency">
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+            <option value="CAD">CAD</option>
+        </select>
+        <select id="to-currency">
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+            <option value="CAD">CAD</option>
+        </select>
+        <button id="convert-currency">Convert</button>
+    </div>
+    <div id="conversion-result"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
