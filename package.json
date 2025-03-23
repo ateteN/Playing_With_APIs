@@ -1,0 +1,23 @@
+{
+  "name": "Playing_With_APIs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/ateteN/Playing_With_APIs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ateteN/Playing_With_APIs/issues"
+  },
+  "homepage": "https://github.com/ateteN/Playing_With_APIs#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
