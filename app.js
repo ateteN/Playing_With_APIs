@@ -15,13 +15,12 @@ const port = 3002;
 const API_KEY = process.env.EXCHANGE_API_KEY;
 const BASE_URL = "https://v6.exchangerate-api.com/v6";
 
-// Serve static files
-app.use(express.static("public"));
-app.use(express.static(path.join(__dirname, "components")));
+// Serve static files (script.js, styles.css, etc.) directly from the root directory
+app.use(express.static(__dirname)); // Serve static files from the root directory
 
-// Route to index.html
+// Route to index.html (in the root directory)
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "components", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html")); // Directly serve index.html
 });
 
 // Fetch exchange rates
