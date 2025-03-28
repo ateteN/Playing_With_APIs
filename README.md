@@ -1,4 +1,4 @@
-### Currency Converter
+# Currency Converter
 designed a simple easy to use currency converter that fetches real-time exchange rates using API requests
 
 ## Features
@@ -18,9 +18,9 @@ to install first clone the repository
 5. `node app.js`
 6. it will show app is running on localhoast:&{port} go to locahost
 
-# to make the app run on your local server
-# first install Nginx on load balancer
-# configure Ngix to distribute traffic between web-01 and web-02 by use of upstream block
+### to make the app run on your local server
+### first install Nginx on load balancer
+### configure Ngix to distribute traffic between web-01 and web-02 by use of upstream block
 
 `upstream backend {
     server 0000-web-01;
@@ -32,7 +32,7 @@ server {
             80
 }`
 
-# Nginx configuration for Load Balancing, to forward incoming requests to web-01 and web-02
+### Nginx configuration for Load Balancing, to forward incoming requests to web-01 and web-02
 
 `
 http {
@@ -53,10 +53,7 @@ http {
             proxy_cache_bypass $http_upgrade;
         }
     }
-}
-`
-
-# installed npm install express axios dotenv in my app.js to run the currency exchange API logic inside
+}`
 
 ## Future improvements 
 
