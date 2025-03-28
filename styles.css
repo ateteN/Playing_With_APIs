@@ -48,12 +48,12 @@ label{
     border-radius: 8px;
 }
 .dropdowns #from_currency{
-    color: white;
+    color: #333;
     background: #457B9D;
 }
 .dropdowns #to_currency{
     margin-top: 3px;
-    color: white;
+    color: #333;
     background: #457B9D;;
 }
 select{
