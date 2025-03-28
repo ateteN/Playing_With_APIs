@@ -5,13 +5,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: black;
     outline: none;
-    /* align-items: center; */
-    background: var(--main-color);
+    background: var(--white-color);
     padding: 15px 15px 15px 15px;
     border-radius: 15px;
 }
 body{
-    background-color: #f6f7eb;
+    background-color: var(--main-color);
     display: flex;
     flex-direction: column;
 }
@@ -26,12 +25,12 @@ body{
 
 
 h1, h2, p{
-    color: #CD5D67;
+    color: var(--main-color);
 }
 label{
     font-size: 20px;
     font-weight: bold;
-    color: #CD5D67;
+    color: var(--main-color);
 
 }
 #amount{
@@ -108,7 +107,7 @@ main{
 button{
     border-radius: 5px;
     padding: 12px;
-    background: #CD5D67;
+    background: grey;
     display: flex;
     align-items: center;
     flex-direction: column;
