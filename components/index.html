@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,5 +28,39 @@
     <div id="conversion-result"></div>
 
     <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex Gurus</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="app_details">
+            <img src="" class="app_icon">
+            <h1 class="app_title">Forex Gurus</h1>
+            <p>Welcome! let's make conversions together. start by entering the amount</p>
+            <label for="amount">Amount: </label>
+            <input type="number" id="amount" placeholder="Enter amount">
+            <input type="text" id="search_currency" placeholder="search">
+        </div>
+        <div class="dropdowns">
+            <select id="from_currency"></select>
+            <select id="to_currency"></select>
+        </div>
+        <button id="convert_button">Convert</button>
+        <h2>Converted: <span id="result"></span></h2>
+    </div>
+    <canvas id="exchangeRateChart" width="200" height="50"></canvas>
+
+    <script type="module" src="currency_codes.js"></script>
+    <script type="module" src="api_key.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

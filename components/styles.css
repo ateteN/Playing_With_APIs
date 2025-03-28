@@ -1,4 +1,4 @@
-body{
+/* body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
 }
@@ -10,4 +10,115 @@ button{
     padding: 8px;
     font-size: 10px;
     cursor: pointer;
+} */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: black;
+    outline: none;
+    /* align-items: center; */
+    background: #1D3557;
+    padding: 15px 15px 15px 15px;
+    border-radius: 15px;
+}
+body{
+    background-color: #f6f7eb;
+    display: flex;
+    flex-direction: column;
+}
+h1, h2, p{
+    color: #CD5D67;
+}
+label{
+    font-size: 20px;
+    font-weight: bold;
+    color: #CD5D67;
+
+}
+#amount{
+    background: #a8dadc ;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+#search_currency{
+    background: #a8dadc;
+    padding: 5px;
+    border-radius: 8px;
+}
+.dropdowns #from_currency{
+    color: white;
+    background: #457B9D;
+}
+.dropdowns #to_currency{
+    margin-top: 3px;
+    color: white;
+    background: #457B9D;;
+}
+select{
+    background: #333;
+}
+.wraper {
+    width:90%;
+    max-width: 25em;
+
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    padding: 2em;
+    border-radius: 0.8em;
+    background: greenyellow;
+}
+main{
+    align-items: center;
+    align-content: center;
+    display: flex;
+    background: pink;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.app_details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+}
+.dropdowns{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 3px;
+}
+.app_icon{
+    width: 9.375em;
+}
+.app_title{
+    font-size: 1.6em;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+.labels{
+    padding: 5px;
+}
+
+button{
+    border-radius: 5px;
+    padding: 12px;
+    background: #CD5D67;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+button :hover{
+    color: yellow;
 }
