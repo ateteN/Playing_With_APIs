@@ -1,5 +1,7 @@
 # EchangeRate API
-designed a simple easy to use currency converter that fetches real-time exchange rates using API requests
+designed a simple easy to use currency converter that fetches real-time exchange rates using API requests. 
+get yours at https://www.exchangerate-api.com/
+Visit the live app to see it happen. check the console ctrl+shift+i to see the get requests to retrieve data.
 
 ## Features
 1. fetches real time data of currency exchange using ExchangeRate-API
@@ -9,9 +11,8 @@ designed a simple easy to use currency converter that fetches real-time exchange
 ## Technologies used
 HTML, CSS, Javascript, Node.js, Express,js
 
-## installation
-to install first clone the repository 
-1. `git clone`
+## installation 
+1. first clone the repo using `git clone`
 2. `cd theproject directory`
 3. `npm install`
 4. create a .env file
@@ -53,9 +54,18 @@ http {
             proxy_cache_bypass $http_upgrade;
         }
     }
-}`
+}
+`
 
 ## Future improvements 
 
 1. adding better UI/UX design
 2. implementing user authentication to track conversions
+
+## View Project
+
+**Github:** https://ateten.github.io/Playing_With_APIs/
+**vercel:** https://playing-with-ap-is.vercel.app/  
+**watch demo video on:** https://youtu.be/cnR-ouu5vLE
+
+**view full project with KuriCash on:** https://github.com/ateteN/kuriCah.git
