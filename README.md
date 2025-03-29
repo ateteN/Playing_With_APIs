@@ -23,7 +23,9 @@ HTML, CSS, Javascript, Node.js, Express,js
 ### first install Nginx on load balancer
 ### configure Ngix to distribute traffic between web-01 and web-02 by use of upstream block
 
-`upstream backend {
+`
+
+upstream backend {
     server 0000-web-01;
     server 0000-web-02;
 }
@@ -31,7 +33,9 @@ server {
     listen 80;
     location:
             80
-}`
+}
+
+`
 
 ### Nginx configuration for Load Balancing, to forward incoming requests to web-01 and web-02
 
