@@ -69,6 +69,7 @@ http {
 ## View Project
 
 **Github:** https://ateten.github.io/Playing_With_APIs/
+
 **vercel:** https://playing-with-ap-is.vercel.app/  
 **watch demo video on:** https://youtu.be/cnR-ouu5vLE
 
