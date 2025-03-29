@@ -1,4 +1,4 @@
-# Currency Converter
+# EchangeRate API
 designed a simple easy to use currency converter that fetches real-time exchange rates using API requests
 
 ## Features
