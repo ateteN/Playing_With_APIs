@@ -8,12 +8,18 @@ const amountInput = document.getElementById("amount");
 const resultDisplay = document.getElementById("result");
 
 // Populate dropdowns with all available currencies
-currencies.forEach(currency => {
-    let option1 = new Option(currency, currency);
-    let option2 = new Option(currency, currency);
-    fromDropDown.add(option1);
-    toDropDown.add(option2);
-});
+fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`)
+  .then(response => response.json())
+  .then(data => {
+    const currencyCodes = Object.keys(data.conversion_rates); // Extract currency codes from API response
+    currencyCodes.forEach(currency => {
+      let option1 = new Option(currency, currency);
+      let option2 = new Option(currency, currency);
+      fromDropDown.add(option1);
+      toDropDown.add(option2);
+    });
+    applySearchFilter();
+  });
 
 
 // Fetch exchange rates from API
@@ -76,50 +82,40 @@ const exchangeRateChart = new Chart(ctx, {
 });
 
 // Function to update the chart with the fetched data
-function updateChart(rate) {
+function updateChart(rate, from_Currency, to_currency) {
   exchangeRateChart.data.datasets[0].data = [rate]; // Update the data
+  exchangeRateChart.data.datasets[0].label  = `${from_Currency} to ${to_currency} Exchange Rate`;
   exchangeRateChart.update(); // Redraw the chart
 }
 
 // Fetch current exchange rate between USD and EUR
 function fetchExchangeRate() {
-  const fromCurrency = 'USD'; // You can set it dynamically based on user input
-  const toCurrency = 'EUR'; // You can set it dynamically as well
-
-  fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurrency}`)
+  const from_currency = document.getElementById('from_currency').value; 
+  const to_currency = document.getElementById('to_currency').value; 
+  fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${from_currency}`)
     .then(response => response.json())
     .then(data => {
-      const rate = data.conversion_rates[toCurrency];
+      const rate = data.conversion_rates[to_currency];
       resultDisplay.innerText = (amount*rate).toFixed(2);
-      updateChart(rate); // Update chart with the fetched rate
     })
     .catch(error => {
-      console.error("Error fetching rates", error);
-      resultDisplay.innerText = "Error fetching exchange rates.";
+      console.error("we couldn't find your exchange rates", error);
+      resultDisplay.innerText = "we couldn't find your exchange rate";
     });
 }
-
-// Call fetchExchangeRate when the page loads
 fetchExchangeRate();
-
 
 // Convert button click event
 convert_button.onclick = () => {
     const from = fromDropDown.value;
     const to = toDropDown.value;
-    const amount = amountInput.value;
-
-    // Error handling for empty input
-    if (!amount || !from || !to) {
-        resultDisplay.innerText = "Please fill in Amount";
-        return;
-    }
 
     fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${from}`)
         .then(res => res.json())
         .then(data => {
-            let rate = data.conversion_rates[to];
+            const rate = data.conversion_rates[to];
             resultDisplay.innerText = (amount * rate).toFixed(2);
+            updateChart(rate, from_currency, to_currency)
         })
         .catch(error => {
             console.error("Error looking for rates", error);
@@ -127,92 +123,3 @@ convert_button.onclick = () => {
         });
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// import { apiKey } from './api_key.js';
-// import { currencies } from './currency_codes.js';
-// const fromDropDown = document.getElementById("from_currency");
-// const toDropDown = document.getElementById("to_currency");
-// const convert_button = document.getElementById("convert_button");
-// const amountInput = document.getElementById("amount");
-// const resultDisplay = document.getElementById("result");
-
-// currencies.forEach(currency => {
-//     let option1 = new Option(currency, currency);
-//     let option2 = new Option(currency, currency);
-//     fromDropDown.add(option1);
-//     toDropDown.add(option2);
-//     // fromDropDown.innerHTML= `<option value="${currency}">${currency}</option>`
-// });
-
-// const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
-
-// // document.getElementById("convert_button").addEventListener("click", function(){
-// //     const amount = document.getElementById("amount").value;
-// //     const toCurrency = document.getElementById("to_currency").value;
-// //     console.log(`Amount:${amount}, to Currency: ${toCurrency});`)
-
-// fetch(apiUrl)
-//     .then(response => response.json())
-//     .then(data => console.log("Exchange rate: ", data.conversion_rates))
-//     .catch(error => {
-//         console.error("Error, try again later", error);
-//     });
-
-
-// const searchInput= document.getElementById("search_currency");
-// searchInput.addEventListener("input", function(){
-//     const searchTerm= searchInput.value.toLowerCase();
-//     const searchingCurrencies= currencies.filter(currency=>
-//         currency.toLowerCase().includes(searchTerm)
-//     );
-//     fromDropDown.innerHTML="";
-//     toDropDown.innerHTML="";
-
-//     searchingCurrencies.forEach(currency=> {
-//         fromDropDown.innerHTML+=`<option value="${currency}">${currency}</option>`;
-//         toDropDown.innerHTML+=`<option value="${currency}">${currency}</option>`;
-//     });
-// });
-
-// convert_button.onclick=() =>{
-//     const from = fromDropDown.value;
-//     const to = toDropDown.value;
-//     const amount = amountInput.value;
-//     if (!amount || !from || !to){
-//         resultDisplay.innerText="Please fill everything"
-//         return;
-//     }
-//     fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${from}`)
-//         .then(res => res.json())
-//         .then(data =>{
-//             let rate = data.conversion_rates[to];
-//             resultDisplay.innerText=(amount*rate).toFixed(2);
-//         })
-//         .catch(error => {
-//             console.error("Error looking for rates", error);
-//             resultDisplay.innerText="Error looking for rates";
-//         });
-// };
